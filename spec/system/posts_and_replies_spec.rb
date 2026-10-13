@@ -27,7 +27,7 @@ RSpec.describe "Enhanced Ignore - posts, reply previews and other surfaces" do
       within(post_selector(first_post)) do
         expect(page).to have_css(
           ".enhanced-ignore-placeholder--post[role='note']",
-          text: POST_PLACEHOLDER,
+          text: EnhancedIgnoreHelpers::POST_PLACEHOLDER,
         )
         expect(page).to have_no_content("Opening secret words.")
         expect(page).to have_no_css(".topic-avatar img.avatar", visible: :visible)
@@ -79,7 +79,12 @@ RSpec.describe "Enhanced Ignore - posts, reply previews and other surfaces" do
       )
     end
 
-    before { SiteSetting.suppress_reply_directly_above = false }
+    before do
+      SiteSetting.suppress_reply_directly_above = false
+      # Fabricated posts skip the bookkeeping that PostCreator does for replies.
+      [ignored_reply, friend_reply].each { |reply| PostReply.create!(post: first_post, reply:) }
+      first_post.update!(reply_count: 2)
+    end
 
     it "keeps a reply to an ignored user but drops the reply-to header" do
       enable_for_everyone!

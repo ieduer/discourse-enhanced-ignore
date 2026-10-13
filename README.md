@@ -149,7 +149,7 @@ depends on other code, no claim.
 
 | Surface | Status | Notes |
 | --- | --- | --- |
-| Latest, New, Unread, Top | Implemented | Topics *started* by an ignored user are hidden. Topics they only replied in stay. |
+| Latest, New, Unread | Implemented | Topics *started* by an ignored user are hidden. Topics they only replied in stay. |
 | Category and tag pages | Implemented | |
 | Categories page with "Latest" column | Implemented | |
 | Suggested / related topics under a topic | Implemented | |

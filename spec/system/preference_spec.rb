@@ -31,7 +31,7 @@ RSpec.describe "Enhanced Ignore - member preference" do
     expect(page).to have_css(topic_row(ignored_topic))
 
     visit(preferences_path)
-    expect(page).to have_css(TOGGLE)
+    expect(page).to have_css(EnhancedIgnoreHelpers::TOGGLE)
     expect(page).to have_no_checked_field("enhanced-ignore-toggle")
     expect(page).to have_css(".enhanced-ignore-preference__status", text: "Enhanced ignore is off.")
   end
@@ -71,7 +71,7 @@ RSpec.describe "Enhanced Ignore - member preference" do
     sign_in(viewer)
     visit(preferences_path)
 
-    toggle = find(TOGGLE)
+    toggle = find(EnhancedIgnoreHelpers::TOGGLE)
     expect(toggle["aria-describedby"]).to eq("enhanced-ignore-instructions")
     expect(page).to have_css("label[for='enhanced-ignore-toggle']", text: "Also hide quotes")
     expect(page).to have_css("#enhanced-ignore-instructions", text: "only changes what you see")
@@ -100,7 +100,7 @@ RSpec.describe "Enhanced Ignore - member preference" do
     expect(page).to have_css(topic_row(ignored_topic))
 
     visit("/u/#{friend.username}/preferences/users")
-    expect(page).to have_css(TOGGLE)
+    expect(page).to have_css(EnhancedIgnoreHelpers::TOGGLE)
     expect(page).to have_no_checked_field("enhanced-ignore-toggle")
   end
 
@@ -139,7 +139,7 @@ RSpec.describe "Enhanced Ignore - member preference" do
     visit(preferences_path)
 
     expect(page).to have_css(".control-label", text: "Users")
-    expect(page).to have_no_css(TOGGLE)
+    expect(page).to have_no_css(EnhancedIgnoreHelpers::TOGGLE)
   end
 
   it "leaves no trace once the component is removed" do
@@ -156,6 +156,6 @@ RSpec.describe "Enhanced Ignore - member preference" do
     expect(page).to have_css(topic_row(ignored_topic))
     visit(preferences_path)
     expect(page).to have_css(".control-label", text: "Users")
-    expect(page).to have_no_css(TOGGLE)
+    expect(page).to have_no_css(EnhancedIgnoreHelpers::TOGGLE)
   end
 end

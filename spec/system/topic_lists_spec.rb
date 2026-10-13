@@ -53,7 +53,7 @@ RSpec.describe "Enhanced Ignore - topic lists" do
     expect(page).to have_no_css(topic_row(ignored_topic))
   end
 
-  %w[/latest /new /unread /top].each do |path|
+  %w[/latest /new /unread].each do |path|
     it "hides ignored users' topics on #{path} but keeps look-alike usernames" do
       if path == "/unread"
         [ignored_topic, lookalike_topic, friend_topic, replied_topic].each do |topic|

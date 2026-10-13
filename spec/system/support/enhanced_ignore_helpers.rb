@@ -8,7 +8,9 @@ module EnhancedIgnoreHelpers
   TOGGLE = "#enhanced-ignore-toggle"
 
   def self.included(base)
-    base.fab!(:viewer) { Fabricate(:user, username: "viewer", refresh_auto_groups: true) }
+    base.fab!(:viewer) do
+      Fabricate(:user, username: "viewer", trust_level: TrustLevel[2], refresh_auto_groups: true)
+    end
     base.fab!(:ignored) { Fabricate(:user, username: "quinn", refresh_auto_groups: true) }
     base.fab!(:lookalike) { Fabricate(:user, username: "quinn2", refresh_auto_groups: true) }
     base.fab!(:friend) { Fabricate(:user, username: "alice", refresh_auto_groups: true) }

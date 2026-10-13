@@ -70,7 +70,7 @@ RSpec.describe "Enhanced Ignore - quotes" do
         expect(page).to have_no_css("aside.quote[data-username='QUINN']")
         expect(page).to have_css(
           ".enhanced-ignore-placeholder--quote[role='note']",
-          text: QUOTE_PLACEHOLDER,
+          text: EnhancedIgnoreHelpers::QUOTE_PLACEHOLDER,
           count: 2,
         )
         # The placeholder must not repeat the ignored person's identity.
@@ -120,7 +120,7 @@ RSpec.describe "Enhanced Ignore - quotes" do
         expect(page).to have_no_content("Inner secret words.")
         expect(page).to have_css(
           ".enhanced-ignore-placeholder--quote",
-          text: QUOTE_PLACEHOLDER,
+          text: EnhancedIgnoreHelpers::QUOTE_PLACEHOLDER,
           count: 1,
         )
       end
@@ -133,7 +133,7 @@ RSpec.describe "Enhanced Ignore - quotes" do
         # One placeholder for the hidden subtree, not one per nested quote.
         expect(page).to have_css(
           ".enhanced-ignore-placeholder--quote",
-          text: QUOTE_PLACEHOLDER,
+          text: EnhancedIgnoreHelpers::QUOTE_PLACEHOLDER,
           count: 1,
         )
       end
@@ -169,7 +169,10 @@ RSpec.describe "Enhanced Ignore - quotes" do
         expect(page).to have_content(
           "Talking about quinn and @quinn in ordinary prose stays visible.",
         )
-        expect(page).to have_no_css(".enhanced-ignore-placeholder--quote", text: QUOTE_PLACEHOLDER)
+        expect(page).to have_no_css(
+          ".enhanced-ignore-placeholder--quote",
+          text: EnhancedIgnoreHelpers::QUOTE_PLACEHOLDER,
+        )
       end
     end
 
@@ -219,7 +222,7 @@ RSpec.describe "Enhanced Ignore - quotes" do
         expect(page).to have_no_content("Live secret words.")
         expect(page).to have_css(
           ".enhanced-ignore-placeholder--quote",
-          text: QUOTE_PLACEHOLDER,
+          text: EnhancedIgnoreHelpers::QUOTE_PLACEHOLDER,
           count: 1,
         )
       end
@@ -236,7 +239,7 @@ RSpec.describe "Enhanced Ignore - quotes" do
         expect(page).to have_no_content("Edited secret words.")
         expect(page).to have_css(
           ".enhanced-ignore-placeholder--quote",
-          text: QUOTE_PLACEHOLDER,
+          text: EnhancedIgnoreHelpers::QUOTE_PLACEHOLDER,
           count: 1,
         )
       end
@@ -260,7 +263,7 @@ RSpec.describe "Enhanced Ignore - quotes" do
         expect(page).to have_no_content("Far secret words.")
         expect(page).to have_css(
           ".enhanced-ignore-placeholder--quote",
-          text: QUOTE_PLACEHOLDER,
+          text: EnhancedIgnoreHelpers::QUOTE_PLACEHOLDER,
           count: 1,
         )
       end

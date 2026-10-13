@@ -1,0 +1,38 @@
+name: Discourse Theme
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+# The reusable workflow only needs to read this repository.
+permissions:
+  contents: read
+
+jobs:
+  latest:
+    name: latest
+    uses: discourse/.github/.github/workflows/discourse-theme.yml@v1
+    with:
+      core_ref: latest
+
+  release:
+    name: release/2026.9
+    uses: discourse/.github/.github/workflows/discourse-theme.yml@v1
+    with:
+      core_ref: release/2026.9
+      skip_linting: true
+
+  static:
+    name: static checks
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 22
+      - name: Unit tests (no Discourse required)
+        run: node scripts/run-unit-tests.mjs
+      - name: Validate metadata, settings and locale keys
+        run: ruby scripts/validate-config.rb

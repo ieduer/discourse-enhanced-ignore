@@ -1,0 +1,19 @@
+en:
+  theme_metadata:
+    description: "Lets each member extend their own Ignore list to quotes, reply previews, topic lists and other places where an ignored user's content would still appear. Personal display preference only; nothing is removed for anyone else."
+    settings:
+      enabled_by_default: "Turn enhanced ignore on for members who have not made their own choice yet. Members can always switch it off under Preferences > Users. Leave this off to keep the feature strictly opt-in."
+  preference:
+    title: "Enhanced ignore"
+    label: "Also hide quotes, reply previews and topics from users I ignore"
+    instructions: "Applies your Ignored list above to more places in this forum. It only changes what you see in this browser: nothing is deleted or hidden for anyone else, and the choice is not synced to your other devices."
+    status_off: "Enhanced ignore is off."
+    status_empty: "Enhanced ignore is on. Your Ignored list is empty, so nothing is hidden."
+    status_on:
+      one: "Enhanced ignore is on for %{count} ignored user."
+      other: "Enhanced ignore is on for %{count} ignored users."
+    not_persisted: "This browser blocked saving the choice, so it will reset when the page reloads."
+    cannot_ignore: "Your account cannot add users to the Ignored list on this forum yet, so there may be nothing to hide."
+  placeholder:
+    quote: "Quote hidden (ignored user)"
+    post: "Post hidden (ignored user)"

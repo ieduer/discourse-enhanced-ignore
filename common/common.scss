@@ -1,0 +1,72 @@
+// Enhanced Ignore
+//
+// Every rule is keyed on a class that the component's JavaScript adds only
+// while the member has the feature switched on, so an uninstalled or disabled
+// component leaves no visual trace.
+.enhanced-ignore-placeholder {
+  color: var(--primary-medium);
+  font-size: var(--font-down-1);
+  font-style: italic;
+}
+
+// --- Quotes -----------------------------------------------------------------
+.enhanced-ignore-quote-guard {
+  display: none;
+}
+
+aside.quote.enhanced-ignore-quote--hidden {
+  display: none;
+
+  + .enhanced-ignore-quote-guard {
+    display: block;
+    margin: 0.5em 0;
+    padding: 0.4em 0.75em;
+    border-left: 5px solid var(--primary-low);
+    background: var(--primary-very-low);
+  }
+}
+
+// --- Posts ------------------------------------------------------------------
+// Embedded replies inside the same post belong to other authors and are
+// excluded from every rule here.
+.topic-post.enhanced-ignore-post {
+  .topic-avatar:not(.embedded-posts *) > *,
+  .topic-meta-data:not(.embedded-posts *) .names {
+    visibility: hidden;
+  }
+
+  .contents > .cooked,
+  .contents > .post__expand-button {
+    display: none;
+  }
+}
+
+.enhanced-ignore-placeholder--post {
+  padding: 0.5em 0;
+}
+
+// --- Reply previews -----------------------------------------------------------
+.topic-post.enhanced-ignore-reply-to .reply-to-tab {
+  display: none;
+}
+
+.embedded-posts .reply:has(.topic-body > .enhanced-ignore-cooked) {
+  display: none;
+}
+
+.expanded-quote > .enhanced-ignore-cooked {
+  display: none;
+}
+
+// --- Topic lists --------------------------------------------------------------
+.topic-list-item.enhanced-ignore-topic,
+.latest-topic-list-item.enhanced-ignore-topic {
+  display: none;
+}
+
+// --- Preference control -------------------------------------------------------
+.enhanced-ignore-preference__status {
+  margin-top: 0.5em;
+  color: var(--primary-high);
+  font-size: var(--font-down-1);
+}

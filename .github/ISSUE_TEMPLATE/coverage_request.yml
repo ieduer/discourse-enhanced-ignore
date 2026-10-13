@@ -1,0 +1,26 @@
+name: Coverage request
+description: A place where an ignored user's content still appears.
+labels: ["coverage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Check the coverage matrix in the README first: some surfaces are excluded on purpose.
+  - type: input
+    id: discourse-version
+    attributes:
+      label: Discourse version
+    validations:
+      required: true
+  - type: textarea
+    id: where
+    attributes:
+      label: Where does the content appear?
+      description: Page, UI element, and whether it comes from core, a plugin or another theme component.
+    validations:
+      required: true
+  - type: textarea
+    id: identity
+    attributes:
+      label: How is the author identified there?
+      description: If you know it - a `data-user-card` attribute, a model property, a plugin outlet or a transformer. Surfaces without reliable author information cannot be supported.

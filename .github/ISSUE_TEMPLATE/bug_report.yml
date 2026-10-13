@@ -1,0 +1,59 @@
+name: Bug or compatibility report
+description: Something is hidden that should not be, or shown that should be hidden.
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please use synthetic usernames and text. Do not paste your real ignore list, private messages or anything from a private forum.
+  - type: input
+    id: discourse-version
+    attributes:
+      label: Discourse version
+      description: Shown at the bottom of /admin, e.g. "2026.10.0-latest (709839f7d2)".
+    validations:
+      required: true
+  - type: input
+    id: component-version
+    attributes:
+      label: Enhanced Ignore version or commit
+    validations:
+      required: true
+  - type: dropdown
+    id: surface
+    attributes:
+      label: Surface
+      options:
+        - Quotes
+        - Posts / first post of a topic
+        - Reply-to header or replies panel
+        - Topic list (latest, new, unread, category, tag, suggested)
+        - Search results
+        - Profile activity
+        - Preference control
+        - Something else
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Include the page URL pattern (e.g. /t/slug/123), the raw markup of the post if a quote is involved, and whether other theme components or plugins change the same area.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected and actual result
+    validations:
+      required: true
+  - type: input
+    id: browser
+    attributes:
+      label: Browser and device
+  - type: textarea
+    id: console
+    attributes:
+      label: Browser console output
+      description: Lines starting with "[enhanced-ignore]" are especially useful.
+      render: text

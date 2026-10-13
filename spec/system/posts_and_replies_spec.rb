@@ -16,7 +16,7 @@ RSpec.describe "Enhanced Ignore - posts, reply previews and other surfaces" do
   context "with a topic started by an ignored user" do
     fab!(:topic) { Fabricate(:topic, user: ignored) }
     fab!(:first_post) { Fabricate(:post, topic:, user: ignored, raw: "Opening secret words.") }
-    fab!(:reply) { Fabricate(:post, topic:, user: friend, raw: "A friend's legitimate reply.") }
+    fab!(:reply) { Fabricate(:post, topic:, user: friend, raw: "A legitimate reply from a friend.") }
 
     it "hides the author's identity and body but keeps other people's replies" do
       enable_for_everyone!
@@ -35,7 +35,7 @@ RSpec.describe "Enhanced Ignore - posts, reply previews and other surfaces" do
       end
 
       within(post_selector(reply)) do
-        expect(page).to have_content("A friend's legitimate reply.")
+        expect(page).to have_content("A legitimate reply from a friend.")
         expect(page).to have_css(".names a", text: "alice")
         expect(page).to have_css(".topic-avatar img.avatar")
       end

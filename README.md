@@ -220,6 +220,40 @@ check the browser console for `[enhanced-ignore]` warnings.
 ## Verification status
 
 <!-- verification:start -->
+
+**Run by the author (2026-10-13)**
+
+| Check | Where | Result |
+| --- | --- | --- |
+| ESLint, Stylelint, Prettier, type check (`pnpm lint`) | locally and in CI | pass |
+| RuboCop and syntax_tree on the specs | locally and in CI | pass |
+| Metadata / settings / locale-key validation (`pnpm validate`) | locally and in CI | pass |
+| Unit tests for username matching, storage keys, generated selectors and hide decisions (14 tests) | locally under Node, and in CI inside Discourse (QUnit) | pass |
+| English locale lint | CI | pass |
+| System specs in `spec/system` (headless Chromium against a real Discourse, synthetic data) | CI only, on `latest` (`2026.10.0-latest`, `f9533b0a6d`) and `release/2026.9` (`2026.9.0`, `7322b6e390`) | see the [Actions tab](https://github.com/ieduer/discourse-enhanced-ignore/actions) for the current run |
+
+The system specs cover: the opt-in switch (default off, on/off, reload,
+keyboard, per-account isolation, admin default, empty list, anonymous,
+removal), topic lists (latest, new, unread, category, tag, categories +
+latest, suggested, posters column, infinite scroll, expiry, mobile), quotes
+(multiple, name-only, different case, nested both ways, unattributed and
+malformed markup, mis-attributed expansion, live post and edit, far posts),
+first posts, reply-to headers, the replies panel, full-page search, and
+Discourse's own core-feature smoke tests with the component enabled.
+
+**Not run by the author - awaiting verification on a live forum**
+
+- Installation through the admin UI and attachment to a real theme.
+- Everything in the [manual test checklist](docs/MANUAL_TEST_CHECKLIST.md):
+  behaviour with real content, other theme components and plugins, real
+  mobile devices, screen readers, dark mode, and timing/flash on slow devices.
+- Ignoring someone from a user card while their posts are on screen, profile
+  activity streams, topic-map avatars, personal messages.
+- Any Discourse version other than the two CI targets above.
+
+CI passing on two versions is evidence about those two versions in a test
+environment. It is not a claim of production readiness.
+
 <!-- verification:end -->
 
 ## Troubleshooting

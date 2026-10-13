@@ -14,8 +14,10 @@ Keep the browser console open throughout. Any line starting with
 you have seen the result yourself.
 
 Status of this checklist: **none of the items below have been executed by the
-author.** They are the integration tests awaiting verification on a live
-forum. What *was* run is listed in the README under "Verification status".
+author on a live forum.** Automated system specs exercise many of the same
+behaviours in CI against a test Discourse (see the README, "Verification
+status"), but the checklist itself is the integration test awaiting
+verification.
 
 ## 0. Prepare content (as the test accounts)
 

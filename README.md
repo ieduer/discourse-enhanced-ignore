@@ -230,7 +230,7 @@ check the browser console for `[enhanced-ignore]` warnings.
 | Metadata / settings / locale-key validation (`pnpm validate`) | locally and in CI | pass |
 | Unit tests for username matching, storage keys, generated selectors and hide decisions (14 tests) | locally under Node, and in CI inside Discourse (QUnit) | pass |
 | English locale lint | CI | pass |
-| System specs in `spec/system` (headless Chromium against a real Discourse, synthetic data) | CI only, on `latest` (`2026.10.0-latest`, `f9533b0a6d`) and `release/2026.9` (`2026.9.0`, `7322b6e390`) | see the [Actions tab](https://github.com/ieduer/discourse-enhanced-ignore/actions) for the current run |
+| System specs in `spec/system` (headless Chromium against a real Discourse, synthetic data) | CI only, on `latest` (`2026.10.0-latest`, `f9533b0a6d`) and `release/2026.9` (`2026.9.0`, `7322b6e390`) | 53 examples, 0 failures on each target ([run 38419054830](https://github.com/ieduer/discourse-enhanced-ignore/actions/runs/38419054830)); earlier runs failed on mistakes in the specs themselves, visible in the Actions history |
 
 The system specs cover: the opt-in switch (default off, on/off, reload,
 keyboard, per-account isolation, admin default, empty list, anonymous,

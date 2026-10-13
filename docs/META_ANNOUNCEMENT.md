@@ -80,7 +80,7 @@ who have not chosen yet.
 | Discourse | How | Result |
 | --- | --- | --- |
 | [version] | manual checklist on a live forum | [result] |
-| `latest` / `release/2026.9` | repository CI (lint, unit, system specs) | [result, with link to the run] |
+| `2026.10.0-latest` (`f9533b0a6d`) and `2026.9.0` (`7322b6e390`) | repository CI: lint, unit tests, 53 system examples per version in a test environment | pass on 2026-10-13 ([run](https://github.com/ieduer/discourse-enhanced-ignore/actions/runs/38419054830)) - [re-check the latest run before posting] |
 
 The full coverage table (implemented / partial / native / not handled) is in
 the [README](https://github.com/ieduer/discourse-enhanced-ignore#coverage).
